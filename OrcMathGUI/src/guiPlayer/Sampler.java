@@ -57,7 +57,7 @@ public class Sampler extends GUIApplication {
 			//Set styles
 			StyledComponent.setButtonOutline(true);
 			setCustomFont();
-			
+		
 			RadioButton rb1 = new RadioButton(480, 40, 30, 30, "X", null);
 			RadioButton rb2 = new RadioButton(520, 40, 30, 30, "Y", null);
 			rb1.addPeer(rb2);
@@ -119,6 +119,8 @@ public class Sampler extends GUIApplication {
 				}
 			}); 
 			viewObjects.add(cb);
+			
+			viewObjects.add(new Dogs());
 			
 		}
 		
