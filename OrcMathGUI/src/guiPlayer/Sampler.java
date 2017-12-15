@@ -22,7 +22,7 @@ public class Sampler extends GUIApplication {
 	 */
 	private static final long serialVersionUID = -2452328323352199392L;
 
-	public Sampler(int width, int height) {
+	public Sampler(int width, int height) { 
 		super(width, height);
 		setVisible(true);
 		// TODO Auto-generated constructor stub
@@ -120,7 +120,7 @@ public class Sampler extends GUIApplication {
 			}); 
 			viewObjects.add(cb);
 			
-			viewObjects.add(new Dogs());
+			viewObjects.add(new Desserts());
 			
 		}
 		
