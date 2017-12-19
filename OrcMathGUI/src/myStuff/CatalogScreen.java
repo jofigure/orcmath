@@ -40,6 +40,7 @@ public class CatalogScreen extends FullFunctionScreen {
 			  nameField.setText("You clicked the button.");
 			}
 		} );
+		viewObjects.add(add);
 	}
 
 }
