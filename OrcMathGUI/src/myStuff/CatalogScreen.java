@@ -44,3 +44,4 @@ public class CatalogScreen extends FullFunctionScreen {
 	}
 
 }
+.
