@@ -16,9 +16,10 @@ public class CatalogueMaker {
 
 	private ArrayList<Desserts> list;
 
+	
 	public CatalogueMaker() {
 		list = new ArrayList <Desserts>();
-		list.add(new Desserts("white",false,"Cake","Vanilla Lava",5));
+		list.add(new Desserts("white",10,"Cake","Vanilla Lava",5));
 	}
 
 	public void setList(ArrayList<Desserts> list) {
@@ -33,20 +34,29 @@ public class CatalogueMaker {
 		CatalogueMaker temp = new CatalogueMaker();
 		System.out.println(temp.getCSVContent());
 		Scanner in = new Scanner(System.in);
-		System.out.println("Do you wish to load ");
-		String input = in.nextLine();
-		if(input.equals("yes")) 
-		{
-
-		}
-		System.out.println("Do you wish to save");
+//		System.out.println("Do you wish to load ");
+//		String input = in.nextLine();
+//		
+		System.out.println("Do you wish to 'save' or 'add'?");
 		String input1 = in.nextLine();
-		if(input1.equals("yes")) 
+		if(input1.equals("save")) 
 		{
-			System.out.println("Enter the color of the dessert:");
+			System.out.println("Enter the dessert:");
 			String color = in.nextLine();
-			System.out.println("Enter if the dessert is eaten or not (boolean):");
-			testSaveContent("save.csv", temp.getList());
+			temp.saveContent(temp.getList());
+		}
+		if(input1.equals("add")) 
+		{
+			System.out.println("Enter the dessert inthis order, color/num/type/name/price:");
+			String color = in.nextLine();
+			String text = in.nextLine();
+			int num = Integer.parseInt(text);
+
+			String type = in.nextLine();
+			String name = in.nextLine();
+			String text2 = in.nextLine();
+			int price = Integer.parseInt(text2);
+			temp.addNewItem(color, num, type, name,price);
 		}
 
 	}
@@ -60,45 +70,41 @@ public class CatalogueMaker {
 
 	}
 
-	public void addNewItem(String color, boolean eaten, String type, String name, int price) {
-		list.add(new Desserts(color,eaten,type, name,price));
+	public void addNewItem(String color,int num, String type, String name, int price) {
+		list.add(new Desserts(color,num,type, name,price));
 		System.out.println("Item added successfully");
 
 	}
+	
+	public  ArrayList<Desserts> getCatalogue() {
+		return list;
+	}
 
-
-	public static void testSaveContent(String fileName,ArrayList<Desserts> list) {
+	private void saveContent(ArrayList<Desserts> list) {
 
 		try{    
-			FileWriter fw=new FileWriter(fileName);  
-			String temp = "";
-			for(Desserts a: list) {
-				temp += a.toString() + "\n"; 
+			FileWriter fw=new FileWriter("saveFile.csv");  
+			for(Desserts a: list) {	
+				fw.write(a + "\n");
 			}
-			fw.write(temp);    
+			    
 			fw.close();    
-			System.out.println("Success! File \""+fileName+"\" saved!");
+			System.out.println("Success!");
 		}catch(IOException e){
-			System.out.println("An IOException was thrown. \nCheck to see that the directory where you tried to save the file actually exists.");
+			System.out.println("An IOException was thrown.");
 		}
 	}
 
 	public List<String> testFileLoading() {
 
 		Scanner in = new Scanner(System.in);
-
 		String fileName = "";
-
 		List<String> content = new ArrayList<String>();
 
 		//use this boolean to control the while loop. The user should have multiple chances to enter a correct filename
-
 		boolean opened = false;
-
 		while(!opened){
-
 			try {
-
 				System.out.println("Enter a file to open");
 				fileName = in.nextLine();
 				FileReader fileReader = new FileReader(new File(fileName));
@@ -108,7 +114,7 @@ public class CatalogueMaker {
 				BufferedReader br = new BufferedReader(fileReader);
 				while ((line = br.readLine()) != null) {
 					String[] par =line.split(",");
-					list.add(new Desserts(par[0],Boolean.parseBoolean(par[1]),par[2], par[3],Integer.parseInt(par[4])));
+					list.add(new Desserts(par[0],Integer.parseInt(par[1]),par[2], par[3],Integer.parseInt(par[4])));
 					content.add(line);
 
 					/*
@@ -116,7 +122,6 @@ public class CatalogueMaker {
 					 * useful later:
 
 					 * split only a comma that has an even number of quotes ahead of it
-
  String[] row = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 
 					 */
@@ -133,5 +138,11 @@ public class CatalogueMaker {
 		in.close();
 		return content;
 	}
+
+	public void addNewItem(Desserts d) {
+		list.add(d);
+	}
+
+
 
 }

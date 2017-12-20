@@ -13,7 +13,8 @@ public class CatalogMaker {
 	public static Scanner in;
 
 	private ArrayList<Book> catalog;
-
+	
+	
 	public CatalogMaker() {
 		//instantiate the catalog
 		catalog = new ArrayList<Book>();
@@ -173,4 +174,6 @@ public class CatalogMaker {
 		create();
 
 	}
+
+	
 }

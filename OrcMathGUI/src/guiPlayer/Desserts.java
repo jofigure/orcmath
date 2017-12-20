@@ -9,15 +9,15 @@ import guiTeacher.components.Component;
 public class Desserts extends Component {
 
 	private String color;
-	private boolean eaten;
+	private int num;
 	private String type;
 	private String name;
 	private int price;
 	
-	public Desserts(String color, boolean eaten, String type, String name, int price) {
+	public Desserts(String color, int num, String type, String name, int price) {
 		super(40, 40, 265, 35);
 		this.color = color;
-		this.eaten = eaten;
+		this.num = num;
 		this.type = type;
 		this.name = name;
 		this.price = price; 
@@ -34,7 +34,7 @@ public class Desserts extends Component {
 	}
 
 	public String toString() {
-		return color + "," + eaten + "," + type +"," + name + "," + price;
+		return color + "," + num + "," + type +"," + name + "," + price;
 		
 	}
 }
