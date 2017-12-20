@@ -28,7 +28,7 @@ public class Sampler extends GUIApplication implements FileRequester{
 	 */
 	private static final long serialVersionUID = -2452328323352199392L;
 
-	public Sampler(int width, int height) {
+	public Sampler(int width, int height) { 
 		super(width, height);
 		setVisible(true);
 		// TODO Auto-generated constructor stub
@@ -64,7 +64,7 @@ public class Sampler extends GUIApplication implements FileRequester{
 			StyledComponent.setButtonOutline(true);
 			StyledComponent.setAccentColor(Color.WHITE);
 			setCustomFont();
-			
+		
 			RadioButton rb1 = new RadioButton(480, 40, 30, 30, "X", null);
 			RadioButton rb2 = new RadioButton(520, 40, 30, 30, "Y", null);
 			rb1.addPeer(rb2);
@@ -129,9 +129,11 @@ public class Sampler extends GUIApplication implements FileRequester{
 			
 			
 				
-				FileOpenButton fileButton = new FileOpenButton(490, 70, 120, 30, null,Sampler.this);
+			FileOpenButton fileButton = new FileOpenButton(490, 70, 120, 30, null,Sampler.this);
 				viewObjects.add(fileButton);
-			
+
+//			viewObjects.add(new Desserts(name, fixedSize, name, name, borderWidth));
+
 		}
 		
 		public void mouseDragged(MouseEvent m) {
