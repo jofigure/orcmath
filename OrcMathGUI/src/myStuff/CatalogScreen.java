@@ -54,7 +54,7 @@ public class CatalogScreen extends FullFunctionScreen {
 
 	protected void addButtonClicked() {
 		checkAnswers();
-		Desserts d = new Desserts(colorField.getText(),Integer.parseInt(numField),typeField.getText(),nameField.getText(),Integer.parseUnsignedInt(priceField));
+		Desserts d = new Desserts(colorField.getText(),Integer.parseInt(numField.getText()),typeField.getText(),nameField.getText(),Integer.parseInt(priceField.getText()));
 		String s = textarea.getText() + d + "\n";
 		textarea.setText(s);
 		catalogue.addNewItem(d);
@@ -70,7 +70,7 @@ public class CatalogScreen extends FullFunctionScreen {
 	}
 
 	private void checkAnswers() {
-		if(Integer.parseInt(numField)%1 == 0 && Integer.parseInt(priceField)%1 == 0 && colorField.getText().length() >0 && typeField.getText().length() >0 
+		if(Integer.parseInt(numField.getText())%1 == 0 && Integer.parseInt(priceField.getText())%1 == 0 && colorField.getText().length() >0 && typeField.getText().length() >0 
 				&& nameField.getText().length() >0) {
 			textarea.setText("Adding item now");
 		} else {
