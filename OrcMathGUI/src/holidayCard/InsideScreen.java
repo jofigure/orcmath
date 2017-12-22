@@ -1,5 +1,6 @@
 package holidayCard;
 
+import java.awt.Font;
 import java.util.List;
 
 import guiTeacher.components.Action;
@@ -19,6 +20,7 @@ public class InsideScreen extends FullFunctionScreen {
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		 back.setButtonOutline(true);
+		 back.setBaseFont(new Font("Times Roman",Font.PLAIN,16));
 		back= new Button(650, 500, 100, 50, "BACK", new Action() {
 
 			@Override
