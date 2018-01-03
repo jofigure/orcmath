@@ -1,23 +1,26 @@
 package simon;
 
+import guiPlayer.CatalogMakerGUI;
+import guiPlayer.CatalogScreen;
 import guiTeacher.GUIApplication;
 
 public class SimonGameJoanna extends GUIApplication {
 
 	public SimonGameJoanna(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		setVisible(true);
 	}
 
 	@Override
 	public void initScreen() {
-		// TODO Auto-generated method stub
-
+		SimonScreenJoanna screen = new SimonScreenJoanna(getWidth(), getHeight());
+		setScreen(screen);
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		SimonGameJoanna game = new SimonGameJoanna(800, 550);
+		Thread runner = new Thread(game);
+		runner.start();
 	}
 
 }
