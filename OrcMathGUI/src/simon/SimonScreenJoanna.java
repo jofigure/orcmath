@@ -115,11 +115,12 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 
 
 	}
+	
 
 	/**
 	Placeholder until partner finishes implementation of ButtonInterface
 	 */
-	private ButtonInterfaceJoanna getAButton() {
+	public ButtonInterfaceJoanna getAButton() {
 		return null;
 	}
 	@Override
@@ -183,6 +184,15 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 		b.dim();
 
 	}
+
+	public ButtonInterfaceJoanna[] getButtons() {
+		return buttons;
+	}
+
+	public void setButtons(ButtonInterfaceJoanna[] buttons) {
+		this.buttons = buttons;
+	}
+
 
 }
 

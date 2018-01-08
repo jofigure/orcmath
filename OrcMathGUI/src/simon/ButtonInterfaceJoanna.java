@@ -7,7 +7,7 @@ import guiTeacher.interfaces.Clickable;
 
 public interface ButtonInterfaceJoanna extends Clickable {
 
-	void setColor(Color black);
+	void setColor(Color color);
 	
 	void highlight();
 	void dim();
