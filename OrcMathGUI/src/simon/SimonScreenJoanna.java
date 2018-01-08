@@ -72,9 +72,9 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 		for(int i =0; i< numberOfButtons; i++) {
 			ButtonInterfaceJoanna b = getAButton();
 			buttons[i] = b;
-			b.setColor(Color.black);
-			b.setX(20);
-			b.setY(50);
+			b.setColor(colors[i]);
+			b.setX(i+20);
+			b.setY(100);
 			b.setAction(new Action() {
 
 				@Override
