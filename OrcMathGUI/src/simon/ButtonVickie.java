@@ -8,41 +8,46 @@ import guiTeacher.components.Button;
 
 public class ButtonVickie extends Button implements ButtonInterfaceJoanna{
 
-	private ButtonInterfaceJoanna[] b;
-	private SimonScreenJoanna j;
+	private boolean highlight;
+	private Color color;
 	
 
 	public ButtonVickie(int x, int y, int w, int h, String text, Action action) {
 		super(x, y, w, h, "", null);
+		highlight = false;
+		update();
 		// TODO Auto-generated constructor stub
-		 j = new SimonScreenJoanna(h, h);
+		
 	}
 
 	@Override
 	public void setColor(Color color) {
-		b=j.getAButton();
-		b.setBackground(color);
+		this.color = color;
+		update();
 		
 	}
 
 	@Override
 	public void highlight() {
-		b = j.getButtons();
-		if()
-		((Graphics2D) b[1]).setBackground(Color.white);
+		highlight = true;
+		update();
 	}
 
 	@Override
 	public void dim() {
-		//make gray
-		b = j.getButtons();
-		b.setBackground(Color.white);
+		
+		highlight = false;
+		update();
 	}
 
 	// not in b-interface
-	public void drawButton(Graphics2D g, boolean hover){
-		g.setColor(Color.RED);
-	    g.drawOval(50,50,20,20);
+	public void drawButton(Graphics2D g, boolean hover) {
+		if(highlight){
+			g.setColor(color.gray);
+			g.fillRect(0, 0, getWidth(), getHeight());
+		}else{
+			g.setColor(color);
+			g.fillRect(0, 0, getWidth(), getHeight());
+		}
 	}
-	
 }

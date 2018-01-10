@@ -2,14 +2,17 @@ package simon;
 
 public class MoveVickie implements MoveInterfaceJoanna{
 
-	@Override
-	public ButtonInterfaceJoanna getButton() {
-		// TODO Auto-generated method stub
-		return null;
+	private ButtonInterfaceJoanna button;
+	
+	public MoveVickie(ButtonInterfaceJoanna b)
+	{
+		this.button = b;
 	}
 	
-	public void update(){
-		
+	public ButtonInterfaceJoanna getButton() {
+		return button;
 	}
+
+	
 
 }

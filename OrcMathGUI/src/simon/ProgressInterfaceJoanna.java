@@ -9,5 +9,7 @@ public interface ProgressInterfaceJoanna extends Visible {
 	void setRound(int roundNumber);
 
 	void setSequenceSize(int size);
+	
+	void setText(String string);
 
 }

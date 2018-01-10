@@ -43,38 +43,40 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 	}
 
 	private MoveInterfaceJoanna randomMove() {
+		ButtonInterfaceJoanna b = null;
 		int bIndex = (int)(Math.random()*buttons.length);
 		while(bIndex == lastSelectedButton) {
 			bIndex = (int)(Math.random()*buttons.length);
 		}
-		return getMove(bIndex);
+		b = buttons[bIndex];
+		lastSelectedButton = bIndex;
+		return getMove(b);
 
 	}
 	/**
 	Placeholder until partner finishes implementation of MoveInterface
 	 */
-	private MoveInterfaceJoanna getMove(int bIndex) {
-		return null;
+	private MoveInterfaceJoanna getMove(ButtonInterfaceJoanna b) {
+		return new MoveVickie(b);
 	}
 
 	/**
 	Placeholder until partner finishes implementation of ProgressInterface
 	 */
 	private ProgressInterfaceJoanna getProgress() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ProgressVickie(50, 350, 100, 100);
 	}
 
 	private void addButtons() {
 		int numberOfButtons = 5;
-		buttons = new ButtonInterfaceJoanna[5];
-		Color[] colors = {Color.black,Color.blue,Color.GREEN,Color.pink,Color.red};
+		buttons = new ButtonInterfaceJoanna[numberOfButtons];
+		Color[] colors = {Color.yellow,Color.blue,Color.GREEN,Color.pink,Color.red};
 		for(int i =0; i< numberOfButtons; i++) {
 			ButtonInterfaceJoanna b = getAButton();
 			buttons[i] = b;
 			b.setColor(colors[i]);
-			b.setX(i+20);
-			b.setY(100);
+			b.setX(250 + i*60);
+			b.setY(150 );
 			b.setAction(new Action() {
 
 				@Override
@@ -99,29 +101,36 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 					}
 					if(b == sequence.get(sequenceIndex).getButton()) {
 						sequenceIndex++;
-					} else {
+					} else 
 						progress.gameOver();
-						if(sequenceIndex == sequence.size()){ 
+						if(sequenceIndex == sequence.size()) {
 							Thread nextRound = new Thread(SimonScreenJoanna.this); 
-							nextRound.start(); 
+							try {
+								Thread.sleep(1000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+								
+							}
+							nextRound.start();
 						}
 					}
 
 
 				}
-			});
+			);
 		}
 
 
 
 	}
-	
+
 
 	/**
 	Placeholder until partner finishes implementation of ButtonInterface
 	 */
 	public ButtonInterfaceJoanna getAButton() {
-		return null;
+		return new ButtonVickie(0, 0,50,50, "", null);
 	}
 	@Override
 	public void run(){
@@ -168,20 +177,14 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 			b = sequence.get(i).getButton();
 			b.highlight();
 			int sleepTime = (800 / roundNumber) + 200;
-			Thread blink = new Thread(new Runnable() {
-
-				@Override
-				public void run() {
-					try {
-						Thread.sleep(sleepTime);
-					} catch(Exception e) {
-						e.printStackTrace();
-					}
-				}
-			});
-			blink.start();
+			try {
+				Thread.sleep(sleepTime);
+			}catch(InterruptedException e){
+				e.printStackTrace();
+			}			
 		}
 		b.dim();
+
 
 	}
 
@@ -222,4 +225,4 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 				b.setY(100);
 			else
 				b.setY(200);
-*/
+ */
