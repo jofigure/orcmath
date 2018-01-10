@@ -42,7 +42,7 @@ public class ProgressVickie extends Component implements ProgressInterfaceJoanna
 	public void update(Graphics2D g) {
 			g.setColor(Color.black);
 		if(!gameOver) {
-			g.drawString("Length "+(round+2),5,10);
+			g.drawString("Length "+(round+2), 5,10);
 			g.drawString("Round: "+round,5,30);
 
 		}else {

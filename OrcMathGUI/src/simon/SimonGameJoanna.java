@@ -11,7 +11,7 @@ public class SimonGameJoanna extends GUIApplication {
 		setVisible(true);
 	}
 
-	@Override
+	@Override 
 	public void initScreen() {
 		SimonScreenJoanna screen = new SimonScreenJoanna(getWidth(), getHeight());
 		setScreen(screen);

@@ -190,7 +190,7 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 
 
 	}
-
+ 
 	public ButtonInterfaceJoanna[] getButtons() {
 		return buttons;
 	}

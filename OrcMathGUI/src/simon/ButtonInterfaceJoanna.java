@@ -14,4 +14,4 @@ public interface ButtonInterfaceJoanna extends Clickable {
 	void dim();
 
 	
-}
+} 
