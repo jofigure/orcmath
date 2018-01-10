@@ -139,6 +139,7 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 	}
 
 	private void nextRound() {
+		
 		acceptingInput = false;
 		roundNumber++;
 		sequence.add(randomMove());
@@ -217,12 +218,4 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 
 
 
-/***
- * 
- * b.setColor(colors[i]);
-			b.setX(100 + ((i % 2) * 100));
-			if(i < 2)
-				b.setY(100);
-			else
-				b.setY(200);
- */
+
