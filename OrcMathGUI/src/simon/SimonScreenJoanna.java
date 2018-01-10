@@ -31,7 +31,9 @@ public class SimonScreenJoanna extends ClickableScreen implements Runnable {
 			viewObjects.add(b); 
 		}
 		progress = getProgress();
-		label = new TextLabel(130,230,300,40,"Let's play Simon!");
+		label = new TextLabel(130,230,600,200,"Let's play Simon!");
+		//300 40
+		
 		sequence = new ArrayList<MoveInterfaceJoanna>();
 		//add 2 moves to start
 		lastSelectedButton = -1;

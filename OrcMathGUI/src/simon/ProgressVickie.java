@@ -8,7 +8,7 @@ import guiTeacher.components.TextLabel;
 
 public class ProgressVickie extends Component implements ProgressInterfaceJoanna{
 
-	private TextLabel text;
+
 	private int seq;
 	private int round;
 	private boolean gameOver;
@@ -40,23 +40,15 @@ public class ProgressVickie extends Component implements ProgressInterfaceJoanna
 
 	@Override
 	public void update(Graphics2D g) {
-		clear();
-		if(gameOver) {
 			g.setColor(Color.black);
-			g.drawString("Round: "+round,10,55);
-			g.drawString("You're highest score is" + round,30,100);
-			
-			
-		}else {
-			g.setColor(Color.black);
+		if(!gameOver) {
+			g.drawString("Length "+(round+2),5,10);
 			g.drawString("Round: "+round,5,30);
+
+		}else {
+			g.drawString("Round: "+round,10,55);
+			g.drawString("Highest score:" + round,5,70);
 		}
-	}
-
-	@Override
-	public void setText(String string) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

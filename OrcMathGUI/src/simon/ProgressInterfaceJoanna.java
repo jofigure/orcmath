@@ -10,6 +10,6 @@ public interface ProgressInterfaceJoanna extends Visible {
 
 	void setSequenceSize(int size);
 	
-	void setText(String string);
+
 
 }

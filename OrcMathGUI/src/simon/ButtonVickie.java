@@ -42,6 +42,7 @@ public class ButtonVickie extends Button implements ButtonInterfaceJoanna{
 
 	// not in b-interface
 	public void drawButton(Graphics2D g, boolean hover) {
+		
 		if(highlight){
 			g.setColor(color.gray);
 			g.fillRect(0, 0, getWidth(), getHeight());
