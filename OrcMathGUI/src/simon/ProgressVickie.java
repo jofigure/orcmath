@@ -47,7 +47,8 @@ public class ProgressVickie extends Component implements ProgressInterfaceJoanna
 
 		}else {
 			g.drawString("Round: "+round,10,55);
-			g.drawString("Highest score:" + round,5,70);
+			g.drawString("You Lose!!! ",10,90);
+			g.drawString("Highest score:" + (round-1),5,70);
 		}
 	}
 

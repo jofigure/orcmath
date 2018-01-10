@@ -1,5 +1,7 @@
 package simon;
 
+import java.awt.Color;
+
 import guiPlayer.CatalogMakerGUI;
 import guiPlayer.CatalogScreen;
 import guiTeacher.GUIApplication;
@@ -14,6 +16,7 @@ public class SimonGameJoanna extends GUIApplication {
 	@Override 
 	public void initScreen() {
 		SimonScreenJoanna screen = new SimonScreenJoanna(getWidth(), getHeight());
+		screen.setBackground(Color.cyan);
 		setScreen(screen);
 	}
 
