@@ -16,51 +16,48 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 
 public class TestScreen extends FullFunctionScreen {
 
-	private Button go;
-	private int delay;
-	private Timer timer;
-	private TextArea box;
+	private Button win;
+	private Button lose;
+	private TextLabel text;
+
 	public TestScreen(int width, int height) {
 		super(width, height);
-		delay = 3;
+
 	}
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
-		go = new Button(100, 100, 100, 50, "GO", new Action() {
+		text = new TextLabel(200, 100, 100, 100, "Click on one");
+		win = new Button(300, 250, 100, 50, "WIN", new Action() {
 
 			@Override
 			public void act() {
-				setBackground(Color.pink);
-				startTimer();
+				text.setText("YOU WIN!");
+				lose.setEnabled(false);
+				win.setEnabled(false);
+			}
+		});
+		
+		lose = new Button(100, 250, 100, 50, "LOSE", new Action() {
+
+			@Override
+			public void act() {
+				text.setText("YOU LOSE!");
+				win.setEnabled(false);
+				lose.setEnabled(false);
 
 
 			}
 		});
-		box = new TextArea(300, 250, 100, 100, "text goes here");
-		viewObjects.add(go);
-		viewObjects.add(box);
-
-
-	}
-
-
-
-
-	public void startTimer() {
 		
-			javax.swing.Timer timer = new javax.swing.Timer(1000, new ActionListener() { 
+		viewObjects.add(win);
+		viewObjects.add(lose);
+		viewObjects.add(text);
 
-				public void actionPerformed(ActionEvent arg0) {
-					box.setText(""+delay);
-					delay--;
-				}
-			});
-			timer.setRepeats(false);
-			while(delay>0) {
-			timer.start();
-			delay--;
-		}
+
 	}
-	
+
+
+
+
 }
